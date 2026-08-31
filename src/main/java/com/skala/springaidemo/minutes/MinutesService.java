@@ -15,7 +15,7 @@ import reactor.core.publisher.Flux;
 public class MinutesService {
 
     private static final Logger log = LoggerFactory.getLogger(MinutesService.class);
-    
+
     private final ChatClient chat;
     private final int maxSentences;
 
@@ -29,9 +29,9 @@ public class MinutesService {
         this.chat = chat;
         this.maxSentences = maxSentences;
     }
-        
 
     public String summarize(String minutes) {
+
         ChatResponse response = chat.prompt()
             .system(s -> s.text(summaryPrompt).param("maxSentences", maxSentences))
             .user(minutes)
@@ -42,7 +42,6 @@ public class MinutesService {
         return response.getResult().getOutput().getText();
     }
 
-
     public MeetingReport report(String minutes) {
         return chat.prompt()
             .system(reportPrompt)
@@ -50,7 +49,6 @@ public class MinutesService {
             .call()
             .entity(MeetingReport.class);
     }
-
 
     public Flux<String> streamSummary(String minutes) {
         return chat.prompt()

@@ -25,6 +25,9 @@ dependencies {
     // Web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    // Validation - @Valid 를 쓰려면 필요하다
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
     // Spring AI - OpenAI
     implementation 'org.springframework.ai:spring-ai-starter-model-openai'
 
