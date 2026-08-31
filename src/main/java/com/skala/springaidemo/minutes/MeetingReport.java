@@ -8,6 +8,7 @@ public record MeetingReport(
     List<String> decisions,
     List<ActionItem> actionItems) {
 
-        public record ActionItem(String owner, String task, String dueDate) {
-        }
+    public record ActionItem(String owner, String task, String dueDate) {
+        
+    }
 }
