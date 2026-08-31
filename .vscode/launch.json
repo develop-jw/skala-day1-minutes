@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringAiDemoApplication<spring-ai-demo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.skala.springaidemo.SpringAiDemoApplication",
+            "projectName": "spring-ai-demo",
+            "args": ""
+        }
+    ]
+}

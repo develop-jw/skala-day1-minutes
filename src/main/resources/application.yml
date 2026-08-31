@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+app:
+  provider: openai
+  temperature: 0.2
+  max-sentences: 3
+
+spring:
+  application:
+    name: meeting-minutes
+
+
+  ai:
+    # Ollama : 키 없이 로컬에서 돈다. 
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: qwen3.5:2b
+
+    # OpenAI 설정
+    openai:
+      # 환경변수 OPENAI_API_KEY 로 주입 (코드/파일에 직접 키를 적지 않기)
+      # 기본값(dummy)은 키가 없어도 앱/테스트가 기동되도록 하기 위함이며,
+      # 실제 호출 시에는 반드시 진짜 키로 덮어써야 함
+      api-key: ${OPENAI_API_KEY:dummy-key-for-local-build}
+      chat:
+        options:
+          model: gpt-4o-mini
+      connect-timeout: 10s
+      read-timeout: 60s
+      embedding:
+        options:
+          model: text-embedding-3-small
+
+logging:
+  level:
+    com.skala.springaidemo: DEBUG
+    org.springframework.ai: INFO
+
+---
+# ./gradlew bootRun --args='--spring.profiles.active=local'  → 키 없이 Ollama 로 실행
+spring:
+  config:
+    activate:
+      on-profile: local
+app:
+  provider: ollama

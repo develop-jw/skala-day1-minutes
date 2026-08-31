@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.5'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.skala'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springAiVersion', "1.1.8")
+}
+
+dependencies {
+    // Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring AI - OpenAI
+    implementation 'org.springframework.ai:spring-ai-starter-model-openai'
+
+    // Spring AI - Ollama (로컬 모델). app.provider=ollama 로 전환해 쓴다.
+    // TODO Maven Central 429(요청 제한)가 풀리면 주석 해제한다. 해제 후에는
+    //      AiConfig 에서 @Qualifier("ollamaChatModel") 주입을 되살릴 수 있다.
+    // implementation 'org.springframework.ai:spring-ai-starter-model-ollama'
+
+    // Spring AI - VectorStore (in-memory SimpleVectorStore) + RAG용 QuestionAnswerAdvisor
+    implementation 'org.springframework.ai:spring-ai-vector-store'
+    implementation 'org.springframework.ai:spring-ai-advisors-vector-store'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Dev tools (코드 변경 시 자동 재시작)
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    // @RequestParam("name") 처럼 이름을 명시하지 않아도 스프링이 파라미터명을
+    // 리플렉션으로 읽을 수 있도록 컴파일 시 파라미터 이름 정보를 남긴다.
+    options.compilerArgs << '-parameters'
+}
