@@ -1,7 +1,7 @@
-package com.skala.springaidemo.web;
+package com.skala.minutes.web;
 
-import com.skala.springaidemo.minutes.MeetingReport;
-import com.skala.springaidemo.minutes.MinutesService;
+import com.skala.minutes.minutes.MeetingReport;
+import com.skala.minutes.minutes.MinutesService;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/minutes")
 public class MinutesController {
 
-    private final com.skala.springaidemo.minutes.MinutesService minutesService;
+    private final com.skala.minutes.minutes.MinutesService minutesService;
 
     public MinutesController(MinutesService minutesService) {
         this.minutesService = minutesService;

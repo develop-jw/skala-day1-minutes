@@ -1,4 +1,4 @@
-package com.skala.springaidemo.minutes;
+package com.skala.minutes.minutes;
 
 import java.util.List;
 

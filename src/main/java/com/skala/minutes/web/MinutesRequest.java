@@ -1,4 +1,4 @@
-package com.skala.springaidemo.web;
+package com.skala.minutes.web;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -3,11 +3,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-SpringAiDemoApplication<spring-ai-demo>",
+            "name": "Spring Boot-MinutesApplication<skala-day1-minutes>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.skala.springaidemo.SpringAiDemoApplication",
-            "projectName": "spring-ai-demo",
+            "mainClass": "com.skala.minutes.MinutesApplication",
+            "projectName": "skala-day1-minutes",
             "args": ""
         }
     ]

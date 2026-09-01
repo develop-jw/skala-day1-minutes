@@ -36,7 +36,7 @@ spring:
 
 logging:
   level:
-    com.skala.springaidemo: DEBUG
+    com.skala.minutes: DEBUG
     org.springframework.ai: INFO
 
 ---

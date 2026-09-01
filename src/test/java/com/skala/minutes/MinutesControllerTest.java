@@ -1,8 +1,8 @@
-package com.skala.springaidemo;
+package com.skala.minutes;
 
-import com.skala.springaidemo.minutes.MeetingReport;
-import com.skala.springaidemo.minutes.MinutesService;
-import com.skala.springaidemo.web.MinutesController;
+import com.skala.minutes.minutes.MeetingReport;
+import com.skala.minutes.minutes.MinutesService;
+import com.skala.minutes.web.MinutesController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

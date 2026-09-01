@@ -1,4 +1,4 @@
-package com.skala.springaidemo.minutes;
+package com.skala.minutes.minutes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.skala.springaidemo;
+package com.skala.minutes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.client.ChatClient;

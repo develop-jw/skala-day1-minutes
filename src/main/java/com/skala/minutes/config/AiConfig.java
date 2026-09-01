@@ -1,4 +1,4 @@
-package com.skala.springaidemo.config;
+package com.skala.minutes.config;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.model.ChatModel;

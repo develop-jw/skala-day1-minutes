@@ -1,4 +1,4 @@
-package com.skala.springaidemo.support;
+package com.skala.minutes.support;
 
 import org.springframework.ai.chat.messages.AssistantMessage;
 import org.springframework.ai.chat.messages.Message;
